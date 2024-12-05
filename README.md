@@ -12,8 +12,6 @@ This repository implements a **Retrieval-Augmented Generation (RAG)** pipeline c
 
 The pipeline is designed for tasks such as question answering, summarization, and other NLP applications where leveraging external knowledge sources is crucial.
 
----
-
 ## Features
 
 - **Modular Design**: Easily adapt and extend the pipeline for various use cases.
@@ -21,8 +19,6 @@ The pipeline is designed for tasks such as question answering, summarization, an
 - **Contextual Generations**: Retrieve relevant context and pass it to LLMs using LangChain.
 - **Seamless Integration**: Pre-integrated with Ollama for generating fine-tuned outputs.
 - **Documentation**: Comprehensive setup and usage guide included.
-
----
 
 ## Installation
 
