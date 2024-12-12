@@ -1,0 +1,24 @@
+{
+    "documents": [
+        {
+            "title": "Artificial Intelligence",
+            "content": "Artificial Intelligence (AI) refers to the simulation of human intelligence in machines that are programmed to think and learn."
+        },
+        {
+            "title": "Machine Learning",
+            "content": "Machine Learning is a subset of AI that focuses on building systems that learn from data to make predictions or decisions."
+        },
+        {
+            "title": "Natural Language Processing",
+            "content": "Natural Language Processing (NLP) is a branch of AI that helps computers understand, interpret, and respond to human language."
+        },
+        {
+            "title": "Neural Networks",
+            "content": "Neural Networks are a series of algorithms that mimic the operations of a human brain to recognize patterns and solve problems."
+        },
+        {
+            "title": "Data Science",
+            "content": "Data Science combines domain expertise, programming skills, and knowledge of mathematics and statistics to extract meaningful insights from data."
+        }
+    ]
+}
