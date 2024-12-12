@@ -1,8 +1,6 @@
 langchain
 langchain-community
 langchain_ollama
-langchain_ollama.llms
 sentence-transformers
 chromadb
-ollama
 python-dotenv
