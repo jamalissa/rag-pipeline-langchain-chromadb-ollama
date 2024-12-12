@@ -21,7 +21,7 @@ def initialize_vector_db():
     return vectorstore
 
 def initialize_ollama_model():
-    llm = OllamaLLM(model="llama2:7b-chat")
+    llm = OllamaLLM(model="llama2:7b-chat", server_url="http://localhost:11434")
     return llm
 
 def main():

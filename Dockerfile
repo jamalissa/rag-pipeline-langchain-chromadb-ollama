@@ -1,34 +1,40 @@
-# Use an official Python runtime as the base image
-FROM python:3.9-slim
+# Use the official Ollama image as the base
+FROM ollama/ollama:latest
 
 # Set environment variables
 ENV PYTHONUNBUFFERED=1
 
-# Install system-level dependencies
+# Install Python and pip if not already available
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    build-essential \
-    curl \
+    sudo\
     wget \
+    curl\
+    python3 \
+    python3-pip \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-# Install Ollama
-RUN wget -qO- https://ollama.ai/install.sh | bash
+# Upgrade pip and install necessary Python dependencies
+RUN pip3 install --upgrade pip
 
 # Set the working directory
 WORKDIR /app
 
-# Copy application files
+# Copy application files into the container
 COPY . /app/
 
-# Install Python dependencies
-RUN pip install --upgrade pip && pip install -r requirements.txt
+# Install application dependencies
+RUN pip3 install --no-cache-dir -r requirements.txt
 
 # Ensure ChromaDB persistence directory exists
 RUN mkdir -p /app/chroma_data
 
-# Expose ports for Ollama and application
+# Expose application and Ollama ports
 EXPOSE 8000 11434
 
+# Override the default entrypoint to allow shell commands
+ENTRYPOINT ["/bin/bash", "-c"]
+
 # Run Ollama and the RAG pipeline together
-CMD bash -c "ollama serve & uvicorn rag_pipeline:app --host 0.0.0.0 --port 8000"
+CMD bash -c "ollama pull llama2:7b-chat && ollama serve & python ingest_data.py && python rag_pipeline.py"
+
