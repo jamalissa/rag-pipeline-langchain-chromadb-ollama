@@ -1,6 +1,0 @@
-langchain
-langchain-community
-langchain_ollama
-sentence-transformers
-chromadb
-python-dotenv
